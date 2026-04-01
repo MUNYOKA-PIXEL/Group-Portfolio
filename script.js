@@ -18,8 +18,6 @@ const rotatingMessages = [
 const heading = document.getElementById('dynamic-heading');
 const text = document.getElementById('dynamic-text');
 const year = document.getElementById('year');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-const viewLinks = document.querySelectorAll('a[href^="#"]:not(.nav-button)');
 const pageViews = document.querySelectorAll('.page-view');
 
 if (year) {
@@ -37,6 +35,7 @@ const showView = (viewId, updateHash = true) => {
         view.classList.toggle('active-view', view.id === viewId);
     });
 
+    const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach((link) => {
         link.classList.toggle('active', link.getAttribute('href') === `#${viewId}`);
     });
@@ -57,27 +56,29 @@ const showView = (viewId, updateHash = true) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-viewLinks.forEach((anchor) => {
-    anchor.addEventListener('click', (event) => {
-        const href = anchor.getAttribute('href');
-
-        if (!href || !href.startsWith('#')) {
-            return;
-        }
-
-        const targetId = href.slice(1);
-        const targetView = document.getElementById(targetId);
-
-        if (!targetView || !targetView.classList.contains('page-view')) {
-            return;
-        }
-
-        event.preventDefault();
-        showView(targetId);
-    });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+    const viewLinks = document.querySelectorAll('a[href^="#"]:not(.nav-button)');
+    
+    viewLinks.forEach((anchor) => {
+        anchor.addEventListener('click', (event) => {
+            const href = anchor.getAttribute('href');
+
+            if (!href || !href.startsWith('#')) {
+                return;
+            }
+
+            const targetId = href.slice(1);
+            const targetView = document.getElementById(targetId);
+
+            if (!targetView || !targetView.classList.contains('page-view')) {
+                return;
+            }
+
+            event.preventDefault();
+            showView(targetId);
+        });
+    });
+
     const contactCallButton = document.querySelector('.nav-button');
     if (contactCallButton) {
         contactCallButton.addEventListener('click', (event) => {
@@ -85,17 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
             showView('contact');
         });
     }
+
+    if (heading && text) {
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % rotatingMessages.length;
+            heading.textContent = rotatingMessages[index].heading;
+            text.textContent = rotatingMessages[index].text;
+        }, 3200);
+    }
 });
-
-if (heading && text) {
-    let index = 0;
-
-    setInterval(() => {
-        index = (index + 1) % rotatingMessages.length;
-        heading.textContent = rotatingMessages[index].heading;
-        text.textContent = rotatingMessages[index].text;
-    }, 3200);
-}
 
 const revealObserver = new IntersectionObserver(
     (entries) => {
