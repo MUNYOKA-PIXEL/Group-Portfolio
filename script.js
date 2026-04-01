@@ -40,11 +40,6 @@ const showView = (viewId, updateHash = true) => {
         link.classList.toggle('active', link.getAttribute('href') === `#${viewId}`);
     });
 
-    const contactCallButton = document.querySelector('.nav-button');
-    if (contactCallButton) {
-        contactCallButton.classList.toggle('active', viewId === 'contact');
-    }
-
     targetView.querySelectorAll('.reveal').forEach((element) => {
         element.classList.add('visible');
     });
@@ -57,7 +52,7 @@ const showView = (viewId, updateHash = true) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const viewLinks = document.querySelectorAll('a[href^="#"]:not(.nav-button)');
+    const viewLinks = document.querySelectorAll('a[href^="#"]');
     
     viewLinks.forEach((anchor) => {
         anchor.addEventListener('click', (event) => {
@@ -78,14 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showView(targetId);
         });
     });
-
-    const contactCallButton = document.querySelector('.nav-button');
-    if (contactCallButton) {
-        contactCallButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            showView('contact');
-        });
-    }
 
     if (heading && text) {
         let index = 0;
