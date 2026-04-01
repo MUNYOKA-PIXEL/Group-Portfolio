@@ -514,12 +514,38 @@ ul {
     object-fit: cover;
     border-radius: 12px;
     display: block;
+    max-width: 100%;
 }
 
 .photo-box small {
     display: block;
     margin-top: 0.35rem;
     font-weight: 400;
+}
+
+@media (max-width: 900px) {
+    .photo-box {
+        min-height: 180px;
+        padding: 0.8rem;
+    }
+
+    .team-photo {
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .photo-box {
+        min-height: 150px;
+        padding: 0.6rem;
+        margin-bottom: 0.8rem;
+        border-radius: 12px;
+    }
+
+    .team-photo {
+        height: 150px;
+        border-radius: 10px;
+    }
 }
 
 .contact-card h3,
@@ -598,6 +624,7 @@ ul {
     .logo {
         width: 100%;
         order: 1;
+        font-size: 1rem;
     }
 
     .nav-links {
@@ -613,5 +640,82 @@ ul {
     .nav-links a {
         padding: 0.5rem;
         font-size: 0.85rem;
+    }
+
+    .hero {
+        width: min(92%, 1200px);
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .hero-copy {
+        padding: 1.5rem;
+    }
+
+    .hero-panel {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin: 0.5rem 0 0.8rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .stat-card {
+        padding: 0.8rem;
+    }
+
+    .stat-card strong {
+        font-size: 1.2rem;
+    }
+
+    .info-card,
+    .project-card,
+    .contact-card {
+        padding: 1rem;
+    }
+
+    .photo-box {
+        min-height: 150px;
+        padding: 0.6rem;
+        margin-bottom: 0.8rem;
+        border-radius: 12px;
+    }
+
+    .team-photo {
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .panel-card {
+        padding: 1rem;
+    }
+
+    .hero-actions {
+        gap: 0.6rem;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .btn {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-section {
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+
+    .reveal {
+        animation: fadeView 0.4s ease-out forwards;
     }
 }
