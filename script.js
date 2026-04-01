@@ -19,7 +19,7 @@ const heading = document.getElementById('dynamic-heading');
 const text = document.getElementById('dynamic-text');
 const year = document.getElementById('year');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-const viewLinks = document.querySelectorAll('a[href^="#"]');
+const viewLinks = document.querySelectorAll('a[href^="#"]:not(.nav-button)');
 const pageViews = document.querySelectorAll('.page-view');
 
 if (year) {
@@ -77,13 +77,15 @@ viewLinks.forEach((anchor) => {
     });
 });
 
-const contactCallButton = document.querySelector('.nav-button');
-if (contactCallButton) {
-    contactCallButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        showView('contact');
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const contactCallButton = document.querySelector('.nav-button');
+    if (contactCallButton) {
+        contactCallButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            showView('contact');
+        });
+    }
+});
 
 if (heading && text) {
     let index = 0;
