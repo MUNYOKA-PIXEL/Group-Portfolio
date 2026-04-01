@@ -41,6 +41,11 @@ const showView = (viewId, updateHash = true) => {
         link.classList.toggle('active', link.getAttribute('href') === `#${viewId}`);
     });
 
+    const contactCallButton = document.querySelector('.nav-button');
+    if (contactCallButton) {
+        contactCallButton.classList.toggle('active', viewId === 'contact');
+    }
+
     targetView.querySelectorAll('.reveal').forEach((element) => {
         element.classList.add('visible');
     });
@@ -71,6 +76,14 @@ viewLinks.forEach((anchor) => {
         showView(targetId);
     });
 });
+
+const contactCallButton = document.querySelector('.nav-button');
+if (contactCallButton) {
+    contactCallButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        showView('contact');
+    });
+}
 
 if (heading && text) {
     let index = 0;
