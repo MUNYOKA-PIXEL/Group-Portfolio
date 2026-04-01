@@ -658,21 +658,10 @@ ul {
         padding: 1rem;
     }
 
-    .photo-box {
-        min-height: 150px;
-        padding: 0.6rem;
-        margin-bottom: 0.8rem;
-        border-radius: 12px;
-    }
-
-    .team-photo {
-        height: 150px;
-        border-radius: 10px;
-    }
-
     .panel-card {
         padding: 1rem;
     }
+
 
     .hero-actions {
         gap: 0.6rem;
