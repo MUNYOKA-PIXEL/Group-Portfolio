@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GroupAlpha: Turning bold ideas into thoughtful digital experiences in AI, analytics, finance, and automation. Explore our portfolio of innovative projects.">
+    <meta property="og:title" content="GroupAlpha | Modern Portfolio">
+    <meta property="og:description" content="Tech • Finance • Entrepreneurship: Blending business insight with technical execution for future-ready solutions.">
+    <meta property="og:image" content="https://munyoka-pixel.github.io/Group-Portfolio/preview-image.jpg">
+    <meta property="og:url" content="https://munyoka-pixel.github.io/Group-Portfolio/">
+    <meta property="og:type" content="website">
     <title>GroupAlpha | Modern Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -75,40 +81,6 @@
                     </div>
                 </div>
             </div>
-
-            <section class="section">
-                <div class="section-heading reveal">
-                    <span class="section-tag">Explore the website</span>
-                    <h2>One HTML file, but separate views.</h2>
-                    <p>
-                        Click the navigation or the cards below to switch between sections without
-                        showing everything at once.
-                    </p>
-                </div>
-
-                <div class="page-grid">
-                    <a class="page-link-card reveal" href="#about">
-                        <span class="tag">Team Section</span>
-                        <h3>Meet the Team</h3>
-                        <p>Open the team area with two ready-made spaces for team images.</p>
-                        <span class="link-arrow">Open view →</span>
-                    </a>
-
-                    <a class="page-link-card reveal" href="#projects">
-                        <span class="tag">Projects Section</span>
-                        <h3>Featured Work</h3>
-                        <p>Show your best ideas, case studies, and technical achievements.</p>
-                        <span class="link-arrow">Open view →</span>
-                    </a>
-
-                    <a class="page-link-card reveal" href="#contact">
-                        <span class="tag">Contact Section</span>
-                        <h3>Get in Touch</h3>
-                        <p>Keep your contact details and collaboration message in a separate view.</p>
-                        <span class="link-arrow">Open view →</span>
-                    </a>
-                </div>
-            </section>
         </section>
 
         <section id="about" class="page-view">
@@ -164,34 +136,34 @@
                 <div class="project-grid">
                     <article class="project-card reveal">
                         <span class="tag">Business Research</span>
-                        <h3>AI in Financial Markets</h3>
-                        <p>A concept study on how machine learning can support forecasting and better financial decisions.</p>
+                        <h3>AI-Driven Financial Forecasting Model</h3>
+                        <p>A machine learning project using Python and TensorFlow to analyze historical market data, predict stock trends, and assess risk factors for investment decisions.</p>
                         <ul>
-                            <li>Trend analysis ideas</li>
-                            <li>Risk-aware reasoning</li>
-                            <li>Clear communication visuals</li>
+                            <li>Built predictive models with 85% accuracy on test data</li>
+                            <li>Integrated real-time data from APIs like Alpha Vantage</li>
+                            <li>Visualized insights with interactive charts using Matplotlib</li>
                         </ul>
                     </article>
 
                     <article class="project-card reveal">
                         <span class="tag">Python Systems</span>
-                        <h3>Payroll Automation Tool</h3>
-                        <p>A structured payroll solution for processing employee records, taxes, and salary output faster.</p>
+                        <h3>Automated Payroll Management System</h3>
+                        <p>A full-stack application developed in Python with Flask backend and SQLite database, automating employee salary calculations, tax deductions, and payslip generation.</p>
                         <ul>
-                            <li>Reliable data handling</li>
-                            <li>Time-saving automation</li>
-                            <li>Easy-to-expand logic</li>
+                            <li>Reduced manual processing time by 70%</li>
+                            <li>Implemented secure data handling with encryption</li>
+                            <li>Added reporting features for HR analytics</li>
                         </ul>
                     </article>
 
                     <article class="project-card reveal">
                         <span class="tag">Startup Thinking</span>
-                        <h3>Entrepreneurship Lab</h3>
-                        <p>A collection of startup concepts, branding drafts, and product strategy experiments.</p>
+                        <h3>E-Commerce Platform Prototype</h3>
+                        <p>An MVP for a local e-commerce startup, including user authentication, product catalog, shopping cart, and payment integration using Stripe API.</p>
                         <ul>
-                            <li>Idea development</li>
-                            <li>User-centered design</li>
-                            <li>Growth-focused planning</li>
+                            <li>Designed user-centric UI/UX with Figma prototypes</li>
+                            <li>Developed responsive frontend with React</li>
+                            <li>Conducted market research and competitor analysis</li>
                         </ul>
                     </article>
                 </div>
@@ -199,7 +171,7 @@
         </section>
 
         <section id="contact" class="page-view">
-            <div class="page-header reveal">
+            <div class="page-header reveal text-center">
                 <span class="section-tag">Contact us</span>
                 <h1>Let’s start a conversation.</h1>
                 <p>Share your idea and we’ll reply quickly with practical next steps and a custom collaboration plan.</p>
@@ -208,12 +180,7 @@
             <section class="section">
                 <div class="contact-grid">
                     <article class="contact-card reveal">
-                        <span class="tag">Email</span>
-                        <h3>groupalpha@gmail.com</h3>
-                        <p>Reach out any time; we’re eager to collaborate and bring your vision to life.</p>
-                    </article>
 
-                    <article class="contact-card reveal">
                         <span class="tag">Phone</span>
                         <h3>+2540116574236</h3>
                         <p>Call us for fast support and clear next steps on every project opportunity.</p>
@@ -227,14 +194,41 @@
                 </div>
             </section>
 
-            <section class="section contact-section reveal">
-                <div>
+            <section class="section">
+                <div class="form-header reveal">
                     <span class="section-tag">Ready to connect?</span>
                     <h2>We’d love to hear about your next idea.</h2>
                     <p>Use this area for partnerships, projects, internships, or creative collaborations.</p>
                 </div>
-                <a class="btn btn-primary" href="mailto:groupalpha@gmail.com">Send Email</a>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mbdpzjke" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Inquiry Type *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="inquiry" value="Business" required> Business</label>
+                            <label><input type="radio" name="inquiry" value="Technical"> Technical</label>
+                            <label><input type="radio" name="inquiry" value="Creative"> Creative</label>
+                            <label><input type="radio" name="inquiry" value="Other"> Other</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required maxlength="500"></textarea>
+                        <div class="char-counter"><span id="char-count">0</span>/500</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn" disabled>Send Message</button>
+                </form>
             </section>
+            <div id="form-message" class="form-toast"></div>
         </section>
     </main>
 

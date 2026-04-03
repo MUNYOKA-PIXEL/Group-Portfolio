@@ -100,6 +100,91 @@ document.querySelectorAll('.reveal').forEach((element) => {
     revealObserver.observe(element);
 });
 
+// Contact Form Validation and Submission
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageTextarea = document.getElementById('message');
+    const submitBtn = document.getElementById('submit-btn');
+    const charCount = document.getElementById('char-count');
+    const formMessage = document.getElementById('form-message');
+
+    // Real-time validation
+    const validateField = (field) => {
+        const isValid = field.checkValidity();
+        field.classList.toggle('valid', isValid && field.value.trim() !== '');
+        field.classList.toggle('invalid', !isValid && field.value.trim() !== '');
+        return isValid;
+    };
+
+    // Check overall form validity
+    const checkFormValidity = () => {
+        const nameValid = validateField(nameInput);
+        const emailValid = validateField(emailInput);
+        const messageValid = validateField(messageTextarea);
+        const inquirySelected = document.querySelector('input[name="inquiry"]:checked');
+        
+        submitBtn.disabled = !(nameValid && emailValid && messageValid && inquirySelected);
+    };
+
+    // Event listeners
+    nameInput.addEventListener('input', checkFormValidity);
+    emailInput.addEventListener('input', checkFormValidity);
+    messageTextarea.addEventListener('input', () => {
+        charCount.textContent = messageTextarea.value.length;
+        checkFormValidity();
+    });
+
+    document.querySelectorAll('input[name="inquiry"]').forEach(radio => {
+        radio.addEventListener('change', checkFormValidity);
+    });
+
+    // Show toast notification function
+    const showToast = (text, type) => {
+        formMessage.textContent = text;
+        formMessage.className = `form-toast ${type} show`;
+        setTimeout(() => {
+            formMessage.classList.remove('show');
+        }, 5000); // Hide after 5 seconds
+    };
+
+    // Form submission (handled by Formspree)
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Success
+                form.reset();
+                submitBtn.textContent = 'Send Message';
+                charCount.textContent = '0';
+                checkFormValidity();
+                showToast('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+            showToast('Oops! Something went wrong. Please try again or contact us directly.', 'error');
+        }
+    });
+});
+
 const initialView = window.location.hash.replace('#', '') || 'home';
 showView(initialView, false);
 
